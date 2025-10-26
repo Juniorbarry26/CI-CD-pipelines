@@ -20,8 +20,9 @@ jobs:
     #       root: .
 
       # Build (if using npm/angular)
-      - name: Install dependencies
-        run: npm install
+    #   - name: Install dependencies
+    #     if: ${{ exists('package.json') }}
+    #     run: npm install
 
       - name: Build project
         run: npm run build
