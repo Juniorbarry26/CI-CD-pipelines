@@ -12,24 +12,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      # Validate HTML 
-    #   - name: Validate HTML
-    #     uses: Cyb3r-Jak3/html5validator-action@v1.0.4
-    #     with:
-    #       root: .
-
-      # Build (if using npm/angular)
-    #   - name: Install dependencies
-    #     if: ${{ exists('package.json') }}
-    #     run: npm install
-
-      - name: Build project
-        run: npm run build
-
-      # Deploy to GitHub Pages
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+      - name: Echo
+        run: echo "CI/CD working for HTML project"
