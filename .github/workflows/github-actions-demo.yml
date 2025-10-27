@@ -8,9 +8,14 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  validate-html:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - name: Echo
-        run: echo "CI/CD working for HTML project"
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Validate HTML syntax
+        uses: chabad360/htmlproofer@v1.2.0
+        with:
+          directory: .
