@@ -1,0 +1,31 @@
+name: Workflows steps and jobs with needs keyword
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+    first-job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: First Job Step
+              run: echo "This is the first job."
+    second-job:
+        needs: first-job
+        runs-on: ubuntu-latest
+        steps:
+            - name: Second Job Step
+              run: echo "This is the second job, which runs after the first job."
+    third-job:
+        needs: [first-job, second-job]
+        runs-on: ubuntu-latest
+        steps:
+            - name: Third Job Step
+              run: echo "This is the third job, which runs after both the first and second jobs."
+
+    fourth-job:
+        needs: third-job
+        runs-on: ubuntu-latest
+        steps:
+            - name: Fourth Job Step
+              run: echo "This is the fourth job, which runs after the third job."
